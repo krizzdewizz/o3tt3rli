@@ -7,7 +7,7 @@ html, body {
     --main-fg-color: #FF009A;
     --secondary-fg-color: #C58FF7;
 
-    font-family: pfdinmono;
+    font-family: 'pfdinmono';
     font-size: 22px;
     background-color: #121212;
     color: var(--main-fg-color);

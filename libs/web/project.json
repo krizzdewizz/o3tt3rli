@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/web",
+        "main": "libs/web/src/index.ts",
+        "tsConfig": "libs/web/tsconfig.lib.json",
+        "assets": ["libs/web/src/assets/**"],
+        "generatePackageJson": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/web/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

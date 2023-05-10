@@ -5,7 +5,7 @@ import { join } from 'path';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, 'assets'),
+      rootPath: join(__dirname, '../../libs/web/src/assets'),
     }),
   ],
   controllers: [],
