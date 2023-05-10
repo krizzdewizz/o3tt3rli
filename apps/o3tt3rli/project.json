@@ -1,0 +1,83 @@
+{
+  "name": "o3tt3rli",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/o3tt3rli/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/o3tt3rli",
+        "main": "apps/o3tt3rli/src/main.ts",
+        "tsConfig": "apps/o3tt3rli/tsconfig.app.json",
+        "assets": [
+          "apps/o3tt3rli/src/assets"
+        ],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/o3tt3rli/webpack.config.js",
+        "externalDependencies": [
+          "@nestjs/microservices",
+          "@nestjs/microservices/microservices-module",
+          "class-transformer",
+          "class-validator",
+          "@nestjs/websockets/socket-module",
+          "fastify-static",
+          "cache-manager"
+        ]
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "o3tt3rli:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "o3tt3rli:build:development"
+        },
+        "production": {
+          "buildTarget": "o3tt3rli:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/o3tt3rli/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "apps/o3tt3rli/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
