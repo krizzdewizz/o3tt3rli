@@ -1,57 +1,62 @@
 @font-face {
-  font-family: pfdinmono;
-  src: url(../fonts/PFDinMonoMedium.ttf);
+    font-family: pfdinmono;
+    src: url(../fonts/PFDinMonoMedium.ttf);
 }
 
 html, body {
-  --main-fg-color: #FF009A;
-  --secondary-fg-color: #C58FF7;
+    --main-fg-color: #FF009A;
+    --secondary-fg-color: #C58FF7;
 
-  font-family: pfdinmono;
-  font-size: 22px;
-  background-color: #121212;
-  color: var(--main-fg-color);
-  height: 100%;
+    font-family: pfdinmono;
+    font-size: 22px;
+    background-color: #121212;
+    color: var(--main-fg-color);
+    height: 100%;
 }
 
 body {
-  margin: 0;
-  height: 100%;
-  text-align: center;
+    margin: 0;
+    height: 100%;
+    text-align: center;
 }
 
 a {
-  color: var(--main-fg-color);
-  text-decoration: none;
-  display: block;
-  opacity: 0.6;
-  padding: 5px;
+    color: var(--main-fg-color);
+    text-decoration: none;
+    display: block;
+    opacity: 0.6;
+    padding: 5px;
 }
 
 a:hover {
-  opacity: initial;
+    opacity: initial;
 }
 
 .background {
-  background: url("../images/boom.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
-  opacity: 0.15;
+    background: url("../images/boom.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    opacity: 0.15;
 }
 
 .main {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gigi-glow {
+    color: var(--secondary-fg-color);
+    text-shadow: 0 0 0px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
+    0 0 40px red, 0 0 50px red;
 }
 
 .title {
-  color: var(--secondary-fg-color);
-  text-shadow: 0 0 0px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
-  0 0 40px red, 0 0 50px red;
+    margin-bottom: 40px;
 }
+

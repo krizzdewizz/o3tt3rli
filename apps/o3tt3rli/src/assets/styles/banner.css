@@ -1,0 +1,21 @@
+.banner {
+    white-space: nowrap;
+    font-size: 28px;
+}
+
+.line {
+    position: relative;
+    margin-top: -11px;
+}
+
+.line:last-of-type {
+    position: relative;
+    left: 94px;
+}
+
+.char {
+    width: 9px;
+    display: inline-block;
+    position: relative;
+}
+
