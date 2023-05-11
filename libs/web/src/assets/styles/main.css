@@ -8,7 +8,7 @@ html, body {
     --secondary-fg-color: #C58FF7;
 
     font-family: 'pfdinmono';
-    font-size: 22px;
+    font-size: 34px;
     background-color: #121212;
     color: var(--main-fg-color);
     height: 100%;
@@ -18,6 +18,10 @@ body {
     margin: 0;
     height: 100%;
     text-align: center;
+}
+
+h1 {
+    font-size: 45px;
 }
 
 a {

@@ -2,10 +2,15 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
+const srcDir = '../../../libs/web/src/assets/';
+
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../libs/web/src/assets'),
+      rootPath: join(__dirname, srcDir),
+      serveStaticOptions: {
+        fallthrough: false
+      }
     }),
   ],
   controllers: [],

@@ -10,12 +10,22 @@
 
 .line:last-of-type {
     position: relative;
-    left: 94px;
+    left: 115px;
 }
 
 .char {
-    width: 9px;
+    width: 11px;
     display: inline-block;
     position: relative;
+}
+
+.i-point {
+    position: relative;
+    top: -10px;
+}
+
+.top-3 {
+    position: relative;
+    left: 5px;
 }
 
