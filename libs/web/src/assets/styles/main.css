@@ -45,6 +45,7 @@ a:hover {
     position: absolute;
     height: 100%;
     width: 100%;
+    pointer-events: none;
     background: url("../images/boom.png");
     background-size: cover;
     background-position: center center;
