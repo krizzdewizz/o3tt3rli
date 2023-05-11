@@ -1,17 +1,22 @@
+:root {
+    --o3-bg-color: #121212;
+    --o3-primary-fg-color: #FF009A;
+    --o3-secondary-fg-color: #C58FF7;
+    --o3-font-size: 1.8em;
+}
+
 @font-face {
     font-family: pfdinmono;
     src: url(../fonts/PFDinMonoMedium.ttf);
 }
 
 html, body {
-    --main-fg-color: #FF009A;
-    --secondary-fg-color: #C58FF7;
-
     font-family: 'pfdinmono';
-    font-size: 34px;
-    background-color: #121212;
-    color: var(--main-fg-color);
+    font-size: var(--o3-font-size);
+    background-color: var(--o3-bg-color);
+    color: var(--o3-primary-fg-color);
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -25,11 +30,11 @@ h1 {
 }
 
 a {
-    color: var(--main-fg-color);
+    color: var(--o3-primary-fg-color);
     text-decoration: none;
-    display: block;
+    /*display: block;*/
     opacity: 0.6;
-    padding: 5px;
+    padding: 20px;
 }
 
 a:hover {
@@ -37,16 +42,18 @@ a:hover {
 }
 
 .background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background: url("../images/boom.png");
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    height: 100%;
     opacity: 0.15;
 }
 
 .main {
-    position: absolute;
-    top: 0;
+
     width: 100%;
     margin-top: 50px;
     display: flex;
@@ -55,7 +62,7 @@ a:hover {
 }
 
 .gigi-glow {
-    color: var(--secondary-fg-color);
+    color: var(--o3-secondary-fg-color);
     text-shadow: 0 0 0px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
     0 0 40px red, 0 0 50px red;
 }
@@ -64,3 +71,8 @@ a:hover {
     margin-bottom: 40px;
 }
 
+.banner {
+    transform: scale(1.8);
+    margin-bottom: 5em;
+    margin-top: 4em;
+}
