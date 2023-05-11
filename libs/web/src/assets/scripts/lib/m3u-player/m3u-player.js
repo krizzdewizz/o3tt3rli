@@ -23,7 +23,7 @@ function isBlob(link) {
 }
 function parsePlaylist(textContent) {
   return textContent.match(/^(?!#)(?!\s).*$/mg)
-    .filter(s => s); // filter removes empty strings
+      .filter(s => s); // filter removes empty strings
 }
 /**
  * Download the given playlist, parse it, and store the tracks in the
@@ -92,7 +92,7 @@ function prefetchTrack(url, onload) {
           onload();
         }
       };
-      rangeXhr.send();      
+      rangeXhr.send();
     } else {
       prefetchedTracks.set(url, xhr.response);
       if (onload) {
@@ -154,24 +154,24 @@ function updateSrc(mediaTag, callback) {
     } else {
       // do not use the cached playlist here, though it is tempting: it might genuinely change to allow for updates
       fetchPlaylist(
-        trackUrl,
-        () => {
-          playlist.splice(trackIndex, 1, ...playlists[trackUrl]);
-          playlists[playlistUrl] = playlist;
-          updateSrc(mediaTag, callback);
-        },
-        () => callback());
+          trackUrl,
+          () => {
+            playlist.splice(trackIndex, 1, ...playlists[trackUrl]);
+            playlists[playlistUrl] = playlist;
+            updateSrc(mediaTag, callback);
+          },
+          () => callback());
     }
   } else {
     let url = prefetchedTracks.has(trackUrl)
         ? prefetchedTracks.get(trackUrl) instanceof Blob
-        ? URL.createObjectURL(prefetchedTracks.get(trackUrl))
-        : trackUrl : trackUrl;
+            ? URL.createObjectURL(prefetchedTracks.get(trackUrl))
+            : trackUrl : trackUrl;
     const oldUrl = mediaTag.getAttribute("src");
     // prevent size flickering by setting height before src change
     const canvas = document.createElement("canvas");
     if (!isNaN(mediaTag.duration) // already loaded a valid file
-       && document.fullscreen !== true) { // overlay does not work for fullscreen
+        && document.fullscreen !== true) { // overlay does not work for fullscreen
       // mask flickering with a static overlay
       try {
         showStaticOverlay(mediaTag, canvas);
@@ -204,7 +204,7 @@ function updateSrc(mediaTag, callback) {
           if (url == mediaTag.getAttribute("src")) {
             if (mediaTag.currentTime === 0) {
               mediaTag.setAttribute("src", URL.createObjectURL(
-                prefetchedTracks.get(url)));
+                  prefetchedTracks.get(url)));
             }
           }
         }
@@ -216,7 +216,12 @@ function updateSrc(mediaTag, callback) {
     }
     // update title
     mediaTag.parentElement.querySelector(".m3u-player--title").title = trackUrl;
-    mediaTag.parentElement.querySelector(".m3u-player--title").textContent = trackUrl;
+    const trackSplits = trackUrl
+        .replace(/%20/g, ' ')
+        .replace(/\.mp3/g, '')
+        .split(' - ');
+    mediaTag.parentElement.querySelector(".m3u-player--title").textContent = trackSplits[trackSplits.length - 1]
+    ;
     // start prefetching the next three tracks.
     for (const i of [1, 2, 3]) {
       if (playlist.length > Number(trackIndex) + i) {
@@ -232,7 +237,7 @@ function changeTrack(mediaTag, diff) {
   const tracks = playlists[mediaTag.getAttribute("playlist")];
   if (nextTrackIndex >= 0) { // do not collapse the if clauses with double-and, that does not survive inlining
     if (tracks.length > nextTrackIndex) {
-    mediaTag.setAttribute("track-index", nextTrackIndex);
+      mediaTag.setAttribute("track-index", nextTrackIndex);
       updateSrc(mediaTag, () => mediaTag.play());
     }
   }
@@ -272,26 +277,29 @@ function initPlayer(mediaTag) {
   controls.style.width = mediaTag.getBoundingClientRect().width.toString() + "px";
   // appending the media tag to the wrapper removes it from the outer scope but keeps the event listeners
   wrapper.appendChild(mediaTag);
-  left.innerHTML = "&lt;"; // not textContent, because we MUST escape
-                           // the tag here and textContent shows the
-                           // escaped version
+  // krizz
+  left.innerHTML = "←"; // not textContent, because we MUST escape
+  // the tag here and textContent shows the
+  // escaped version
   left.onclick = () => changeTrack(mediaTag, -1);
-  right.innerHTML = "&gt;";
+  // krizz
+  right.innerHTML = "→";
   right.onclick = () => changeTrack(mediaTag, +1);
   fetchPlaylist(
-    url,
-    () => {
-      updateSrc(mediaTag, () => null);
-      mediaTag.addEventListener("ended", event => {
-        if (mediaTag.currentTime >= mediaTag.duration) {
-          changeTrack(mediaTag, +1);
-        }
-      });
-    },
-    () => null);
+      url,
+      () => {
+        updateSrc(mediaTag, () => null);
+        mediaTag.addEventListener("ended", event => {
+          if (mediaTag.currentTime >= mediaTag.duration) {
+            changeTrack(mediaTag, +1);
+          }
+        });
+      },
+      () => null);
   // keep the controls aligned to the media tag
   mediaTag.resizeObserver = new ResizeObserver(entries => {
-    controls.style.width = entries[0].contentRect.width.toString() + "px";
+    // krizz
+    controls.style.width = "400px";
   });
   mediaTag.resizeObserver.observe(mediaTag);
 }
