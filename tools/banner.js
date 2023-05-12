@@ -16,7 +16,9 @@ const component = (text, font) => {
         font
     });
 
-    const cmpName = text.toLowerCase().replace(/ /g, '-')
+    const cmpName = text.toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/'/g, '')
 
     const html = toHtml(formatted);
     return `(() => {

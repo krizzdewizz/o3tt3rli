@@ -7,7 +7,10 @@ const FONT_MINI = "Mini";
 
 const banner = text =>
     writeFileSync(
-        join(__dirname, `../libs/web/src/assets/scripts/banner/${text.toLowerCase().replace(/ /g, '-')}.banner.js`),
+        join(__dirname, `../libs/web/src/assets/scripts/banner/${text.toLowerCase()
+            .replace(/ /g, '-')
+            .replace(/'/g, '')
+        }.banner.js`),
         component(text, FONT_MINI)
     );
 
