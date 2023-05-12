@@ -6,11 +6,11 @@
 
 .line {
     position: relative;
-    margin-top: -11px;
+    margin-top: -17px;
 }
 
 .char {
-    width: 5px;
+    width: 3px;
     margin-left: -10px;
     display: inline-block;
     position: relative;

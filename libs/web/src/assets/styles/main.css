@@ -37,6 +37,9 @@ a {
 
 a:hover {
     opacity: initial;
+    color: var(--o3-secondary-fg-color);
+    text-shadow: 0 0 0px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
+    0 0 40px red, 0 0 50px red;
 }
 
 .background {
@@ -83,4 +86,10 @@ o3tt3rli-home {
 o3tt3rli-home a {
     padding: 0;
     opacity: 0.2;
+}
+
+o3tt3rli-home a:hover {
+    opacity: initial;
+    color: var(--o3-primary-fg-color);
+    text-shadow: none;
 }
