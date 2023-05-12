@@ -1,6 +1,7 @@
 .banner {
     white-space: nowrap;
-    font-size: 28px;
+    font-size: 40px;
+    margin-bottom: 5em;
 }
 
 .line {
@@ -8,13 +9,9 @@
     margin-top: -11px;
 }
 
-.line:last-of-type {
-    position: relative;
-    left: 115px;
-}
-
 .char {
-    width: 11px;
+    width: 5px;
+    margin-left: -10px;
     display: inline-block;
     position: relative;
 }
@@ -23,9 +20,3 @@
     position: relative;
     top: -10px;
 }
-
-.top-3 {
-    position: relative;
-    left: 5px;
-}
-

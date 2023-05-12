@@ -1,3 +1,5 @@
+@import "banner.css";
+
 :root {
     --o3-bg-color: #121212;
     --o3-primary-fg-color: #FF009A;
@@ -25,10 +27,6 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 45px;
-}
-
 a {
     color: var(--o3-primary-fg-color);
     text-decoration: none;
@@ -54,9 +52,8 @@ a:hover {
 }
 
 .main {
-
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,9 +68,7 @@ a:hover {
 .title {
     margin-bottom: 40px;
 }
-
-.banner {
-    transform: scale(1.8);
-    margin-bottom: 5em;
-    margin-top: 4em;
+.title a {
+    padding: 0;
+    opacity: 1;
 }
