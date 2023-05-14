@@ -51,12 +51,36 @@ a:hover {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.15;
+    opacity: 0.3;
+}
+
+.o3-x .background {
+    background: url("../images/boom-x.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.55;
+}
+
+.o3-x .main {
+    margin-top: 4.5em;
+}
+
+.o3-latazz .background {
+    background: url("../images/boom-latazz.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+}
+
+.o3-latazz .main {
+    margin-top: 1em;
 }
 
 .main {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,6 +95,7 @@ a:hover {
 .title {
     margin-bottom: 40px;
 }
+
 .title a {
     padding: 0;
     opacity: 1;

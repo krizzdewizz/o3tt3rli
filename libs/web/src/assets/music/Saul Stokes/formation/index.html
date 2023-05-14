@@ -21,9 +21,14 @@
         .m3u-player--right, .m3u-player--left {
             cursor: pointer;
             opacity: 0.6 !important;
-            font-size: 40px !important;
+            font-size: 100px !important;
             position: relative;
-            top: -10px;
+            top: -50px;
+        }
+
+        .m3u-player--right:hover, .m3u-player--left:hover {
+            opacity: initial !important;
+            color: var(--o3-primary-fg-color) !important;
         }
 
         .m3u-player--right:hover, .m3u-player--left:hover {
@@ -38,6 +43,8 @@
     </style>
 </head>
 <body>
+
+<script src="../../../scripts/toggle-x.js"></script>
 <script src="../../../scripts/lib/m3u-player/m3u-player.js" defer="defer"></script>
 
 <div class="background"></div>
