@@ -47,35 +47,11 @@ a:hover {
     height: 100%;
     width: 100%;
     pointer-events: none;
-    background: url("../images/boom.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    opacity: 0.3;
-}
-
-.o3-x .background {
     background: url("../images/boom-x.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.55;
-}
-
-.o3-x .main {
-    margin-top: 4.5em;
-}
-
-.o3-latazz .background {
-    background: url("../images/boom-latazz.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    opacity: 0.25;
-}
-
-.o3-latazz .main {
-    margin-top: 1em;
+    opacity: 0.3;
 }
 
 .main {
